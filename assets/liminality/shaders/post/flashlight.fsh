@@ -30,12 +30,13 @@ float LinearizeDepth(float depth)
 
 
 void main(){ 
+    // Sample Flashlight Inputs
     float AmbientBrightness = float(texture(EntityOutlineSampler, vec2(0.0,1.0)).r);
     float FlashlightPower = float(256 * texture(EntityOutlineSampler, vec2(0.0,1.0)).g);
-    
+    // Get Depth
     float BlockDepth = LinearizeDepth(texture(MainDepthSampler, texCoord).r);
     float BlockDistance = length(vec3(1., (2.*texCoord - 1.) * vec2(ScreenSize.x/ScreenSize.y,1.) * tan(radians(FOV / 2.))) * BlockDepth);
-    
+    // Cauculate brightness
     float DistanceFromScreenCenter = distance(vec2(texCoord*vec2(ScreenSize.x/ScreenSize.y,1.)), vec2(vec2(ScreenSize.x/ScreenSize.y,1.) * 0.5));
       
     float Brightness = max((FlashlightPower / BlockDistance) * ((0.3 - DistanceFromScreenCenter)/0.2) , AmbientBrightness);
