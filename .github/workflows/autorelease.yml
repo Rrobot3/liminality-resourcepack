@@ -25,6 +25,6 @@ jobs:
           VERSION=$(gh release view --json tagName -q ".tagName")
           [[ $VERSION =~ [0-9]*$ ]]
           INDEX=$BASH_REMATCH
-          [[ $VERSION =~ .*$INDEX ]]
+          [[ $VERSION =~ (.*)$INDEX ]]
           VERSION="${BASH_REMATCH[1]}$(( $INDEX + 1 ))"
           gh release create $VERSION release.zip
