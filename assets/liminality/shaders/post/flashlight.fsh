@@ -39,7 +39,11 @@ void main(){
 
     float FlashlightDirectionAccuracy = 0.5 - DistanceFromScreenCenter;
 
-    float Brightness = max((FlashlightPower / BlockDistance / BlockDistance) * FlashlightPower * FlashlightDirectionAccuracy, AmbientBrightness);
+    float FlashlightBrightness = (FlashlightPower / BlockDistance / BlockDistance) * FlashlightPower * FlashlightDirectionAccuracy;
+    float Brightness = AmbientBrightness;
+    if (FlashlightBrightness > 0.0) {
+        Brightness += FlashlightBrightness;
+    }
     
     fragColor = (texture(InSampler, texCoord)* Brightness);
 
