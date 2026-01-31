@@ -37,8 +37,9 @@ void main(){
     
     float DistanceFromScreenCenter = distance(vec2(texCoord*vec2(ScreenSize.x/ScreenSize.y,1.)), vec2(vec2(ScreenSize.x/ScreenSize.y,1.) * 0.5));
 
-    float FlashlightRaduis = (2 * atan(2 / (sqrt(BlockDistance) * 2)));
-    float Brightness = max((FlashlightPower / BlockDistance) * ((FlashlightRaduis - DistanceFromScreenCenter)/0.2) , AmbientBrightness);
+    float FlashlightDirectionAccuracy = 0.5 - DistanceFromScreenCenter;
+
+    float Brightness = max((FlashlightPower / BlockDistance / BlockDistance) * FlashlightPower * FlashlightDirectionAccuracy, AmbientBrightness);
     
     fragColor = (texture(InSampler, texCoord)* Brightness);
 
