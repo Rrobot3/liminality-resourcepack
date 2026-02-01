@@ -23,7 +23,7 @@ out vec4 fragColor;
 void main(){
     vec4 InputData = texture(EntityOutlineSampler, GFX_INPUT_3);
 
-    float AmbientBrightness = float(InputData.r);
+    float AmbientBrightness = InputData.r;
     float FlashlightPower = InputData.g * 256;
 
     float BlockDepth = LinearizeDepth(texture(MainDepthSampler, texCoord).r);
