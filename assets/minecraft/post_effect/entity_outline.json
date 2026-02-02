@@ -80,18 +80,18 @@
                 "ChromaticAberrationConfig": [
                     {
                         "name": "RShift",
-                        "type": "vec2",
-                        "value": [0.01, -0.002]
+                        "type": "float",
+                        "value": -0.01
                     },
                     {
                         "name": "GShift",
-                        "type": "vec2",
-                        "value": [-0.01, -0.002]
+                        "type": "float",
+                        "value": 0
                     },
                     {
                         "name": "BShift",
-                        "type": "vec2",
-                        "value": [0, 0.002]
+                        "type": "float",
+                        "value": 0.01
                     }
                 ]
             }

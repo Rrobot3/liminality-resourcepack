@@ -12,19 +12,21 @@ layout(std140) uniform SamplerInfo {
 };
 
 layout(std140) uniform ChromaticAberrationConfig {
-    vec2 RShift;
-    vec2 GShift;
-    vec2 BShift;
+    float RShift;
+    float GShift;
+    float BShift;
 };
 
 out vec4 fragColor;
 
 
 
-void main(){ 
-    float Red = texture(InSampler, texCoord + RShift).r;
-    float Green = texture(InSampler, texCoord + GShift).g;
-    float Blue = texture(InSampler, texCoord + BShift).b;
+void main(){
+    vec2 offset = texCoord - 0.5;
+
+    float Red = texture(InSampler, texCoord + offset * RShift).r;
+    float Green = texture(InSampler, texCoord + offset * GShift).g;
+    float Blue = texture(InSampler, texCoord + offset * BShift).b;
     
     fragColor = vec4(Red, Green, Blue, 1);
 
