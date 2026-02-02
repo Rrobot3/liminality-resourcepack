@@ -81,17 +81,17 @@
                     {
                         "name": "RShift",
                         "type": "vec2",
-                        "value": [0.01, -0.01]
+                        "value": [0.01, -0.002]
                     },
                     {
                         "name": "GShift",
                         "type": "vec2",
-                        "value": [-0.01, -0.01]
+                        "value": [-0.01, -0.002]
                     },
                     {
                         "name": "BShift",
                         "type": "vec2",
-                        "value": [0, 0.01]
+                        "value": [0, 0.002]
                     }
                 ]
             }
