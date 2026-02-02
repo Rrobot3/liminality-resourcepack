@@ -100,23 +100,28 @@
 
         {
             "vertex_shader": "minecraft:core/screenquad",
-            "fragment_shader": "minecraft:post/blit",
+            "fragment_shader": "liminality:post/bits_nosaturation",
             "inputs": [
                 {
                     "sampler_name": "In",
                     "target": "swap"
                 }
             ],
+            "output": "minecraft:entity_outline",
             "uniforms": {
-                "BlitConfig": [
+                "BitsConfig": [
                     {
-                        "name": "ColorModulate",
-                        "type": "vec4",
-                        "value": [ 1.0, 1.0, 1.0, 1.0 ]
+                        "name": "Resolution",
+                        "type": "float",
+                        "value": 512.0
+                    },
+                    {
+                        "name": "MosaicSize",
+                        "type": "float",
+                        "value": 1.0
                     }
                 ]
-            },
-            "output": "minecraft:entity_outline"
+            }
         }
     ]
 }
