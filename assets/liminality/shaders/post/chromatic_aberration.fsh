@@ -21,7 +21,7 @@ layout(std140) uniform ChromaticAberrationConfig {
 out vec4 fragColor;
 
 vec4 OffsetPosition(vec2 texCoord, vec2 Offset){
-    return(clamp(vec2(texCoord + offset), vec2( 1, 1), vec2(0, 0) ));
+    return(clamp(vec2(texCoord + offset), vec2(0, 0), vec2( 1, 1) ));
 }
 
 
