@@ -100,7 +100,7 @@
 
         {
             "vertex_shader": "minecraft:core/screenquad",
-            "fragment_shader": "liminality:post/bits_nosaturation",
+            "fragment_shader": "liminality:post/vhs",
             "inputs": [
                 {
                     "sampler_name": "In",
@@ -109,17 +109,7 @@
             ],
             "output": "minecraft:entity_outline",
             "uniforms": {
-                "BitsConfig": [
-                    {
-                        "name": "Resolution",
-                        "type": "float",
-                        "value": 256.0
-                    },
-                    {
-                        "name": "MosaicSize",
-                        "type": "float",
-                        "value": 4.0
-                    }
+                "VhsConfig": [
                 ]
             }
         }
