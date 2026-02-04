@@ -81,7 +81,7 @@
                     {
                         "name": "RShift",
                         "type": "float",
-                        "value": -0.01
+                        "value": -0.005
                     },
                     {
                         "name": "GShift",
@@ -91,7 +91,7 @@
                     {
                         "name": "BShift",
                         "type": "float",
-                        "value": 0.01
+                        "value": 0.005
                     }
                 ]
             }
