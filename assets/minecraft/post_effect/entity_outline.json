@@ -1,7 +1,6 @@
 {
     "targets": {
-        "swap": {},
-        "final": {}
+        "swap": {}
     },
     "passes": [
         {
@@ -53,7 +52,7 @@
                     "use_depth_buffer": true
                 }
             ],
-            "output": "minecraft:main",
+            "output": "minecraft:entity_outline",
             "uniforms": {
                 "FlashlightConfig": [
                     {
@@ -72,7 +71,7 @@
             "inputs": [
                 {
                     "sampler_name": "In",
-                    "target": "minecraft:main"
+                    "target": "minecraft:entity_outline"
                 }
             ],
             "output": "swap",
@@ -81,7 +80,7 @@
                     {
                         "name": "RShift",
                         "type": "float",
-                        "value": -0.005
+                        "value": -0.01
                     },
                     {
                         "name": "GShift",
@@ -91,7 +90,7 @@
                     {
                         "name": "BShift",
                         "type": "float",
-                        "value": 0.005
+                        "value": 0.01
                     }
                 ]
             }
