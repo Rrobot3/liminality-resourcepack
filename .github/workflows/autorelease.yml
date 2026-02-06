@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build
-        run: zip -r release.zip pack.mcmeta assets
+        run: zip -r release.zip pack.mcmeta pack.png assets
 
       - name: Release
         env:
