@@ -52,7 +52,7 @@
                     "use_depth_buffer": true
                 }
             ],
-            "output": "minecraft:entity_outline",
+            "output": "main",
             "uniforms": {
                 "FlashlightConfig": [
                     {
@@ -71,7 +71,7 @@
             "inputs": [
                 {
                     "sampler_name": "In",
-                    "target": "minecraft:entity_outline"
+                    "target": "minecraft:main"
                 }
             ],
             "output": "swap",
