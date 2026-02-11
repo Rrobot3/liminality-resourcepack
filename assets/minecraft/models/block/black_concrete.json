@@ -1,6 +1,6 @@
 {
   "parent": "liminality:block/cube_no_shading",
   "textures": {
-    "all": "minecraft:block/shroomlight"
+    "all": "minecraft:block/black_concrete"
   }
 }
