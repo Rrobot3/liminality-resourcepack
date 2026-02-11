@@ -1,5 +1,7 @@
 #version 330
 
+#moj_import <minecraft:globals.glsl>
+
 uniform sampler2D InSampler;
 
 in vec2 texCoord;
@@ -7,19 +9,16 @@ in vec2 texCoord;
 layout(std140) uniform SamplerInfo {
     vec2 OutSize;
     vec2 InSize;
-    vec2 ScreenSize;
 };
 
-layout(std140) uniform VhsAberrationConfig {
-    float RShift;
-    float GShift;
-    float BShift;
+layout(std140) uniform VhsConfig {
+    float power;
 };
 
 out vec4 fragColor;
 
-float rand(vec3 co){
-    return fract(sin(dot(co, vec3(12.9898, 78.233, 37.3735))) * 43758.5453);
+float rand(vec2 co){
+    return fract(sin(dot(co, vec2(12.9898, 78.233))) * 43758.5453);
 }
 
 void main(){
@@ -27,7 +26,7 @@ void main(){
 
     vec4 color = texture(InSampler, texCoord);
 
-    float random = rand(vec3(texCoord, 0.0));
+    float random = rand(vec2(rand(texCoord), GameTime));
 
-    fragColor = mix(color, vec4(random, random, random, 1.0), 0.02);
+    fragColor = mix(color, vec4(random, random, random, 1.0), 0.05);
 }
