@@ -18,7 +18,8 @@ jobs:
       - name: Build
         run: |
           find -type f -name '*.json' -exec sh -c 'OUTPUT="$(jq -c < {})" ; echo $OUTPUT > {}' \;
-          zip -r ../release.zip pack.mcmeta pack.png assets
+          find -type f -name '*.mcmeta' -exec sh -c 'OUTPUT="$(jq -c < {})" ; echo $OUTPUT > {}' \;
+          zip -r release.zip pack.mcmeta pack.png assets
 
       - name: Release
         env:
