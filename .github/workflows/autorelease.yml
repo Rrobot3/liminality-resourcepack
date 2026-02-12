@@ -15,12 +15,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build
-        run: |
-          find -type f -name '*.json' -exec sh -c 'OUTPUT="$(jq -c < {})" ; echo $OUTPUT > {}' \;
-          find -type f -name '*.mcmeta' -exec sh -c 'OUTPUT="$(jq -c < {})" ; echo $OUTPUT > {}' \;
-          zip -r release.zip pack.mcmeta pack.png assets
-
       - name: Release
         env:
           GH_TOKEN: ${{ github.token }}
@@ -30,4 +24,4 @@ jobs:
           INDEX=$BASH_REMATCH
           [[ $VERSION =~ (.*)$INDEX ]]
           VERSION="${BASH_REMATCH[1]}$(( $INDEX + 1 ))"
-          gh release create $VERSION release.zip
+          gh workflow run release.yml -f version=$VERSION
