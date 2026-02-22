@@ -17,7 +17,7 @@ float cubeVolume(vec3 pos, vec3 size, vec3 look, float face) {
     return dist * face;
 }
 
-float sphereVolume(vec3 pos, float radius, vec3 look, vec3 face) {
+float sphereVolume(vec3 pos, float radius, vec3 look, float face) {
     float n = dot(look, pos);
     float len = length(pos);
     float delta = n * n - len * len + radius * radius;
